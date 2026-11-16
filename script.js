@@ -93,6 +93,18 @@ function setupUI(){
      }
 
 
+     // Profile link in the navbar: only visible when logged in
+     const profileNavItem = document.getElementById("profile-link")?.closest(".nav-item");
+
+     if (profileNavItem) {
+          if (token) {
+               profileNavItem.classList.remove("d-none");
+          } else {
+               profileNavItem.classList.add("d-none");
+          }
+     }
+
+
      if (token) {
           loggedOutDiv.classList.add("d-none");
           loggedInDiv.classList.remove("d-none");
@@ -137,6 +149,14 @@ const logoutBtn = document.getElementById("logout-btn");
 function logout(){
      localStorage.removeItem("token");
      localStorage.removeItem("user");
+
+     // Profile page is for logged-in users: go home and show the alert there
+     if (document.getElementById("user-posts")) {
+          sessionStorage.setItem("postAlert", "You have been logged out successfully.");
+          window.location.href = "index.html";
+          return;
+     }
+
      setupUI();
      showAlert("You have been logged out successfully.", "info");
 }
