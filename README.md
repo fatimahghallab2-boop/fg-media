@@ -77,4 +77,4 @@ Color palette used across the site:
 
 ## Author
 
-Your name here
+Fatimah ALGhallab
