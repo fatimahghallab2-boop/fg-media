@@ -15,6 +15,10 @@ Built as the final project for the **Advanced JavaScript** series by **Tarmeez A
 - **Instant feedback**: success and error alerts for every action.
 - **Responsive design**: works on phones, tablets and desktops.
 
+## Live Demo
+
+🔗 [https://fatimahghallab2-boop.github.io/fg-media/](https://fatimahghallab2-boop.github.io/fg-media/)
+
 ## Screenshots
 
 ### Home
@@ -30,7 +34,7 @@ Built as the final project for the **Advanced JavaScript** series by **Tarmeez A
 ![Profile page](screenshots/profile.png)
 
 ### Mobile
-![Mobile view](screenshots/mobile.png)
+![Mobile view](screenshots/mobile.jpg)
 
 ## Built With
 
