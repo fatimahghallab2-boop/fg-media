@@ -2,7 +2,7 @@
 
 A responsive social media web app where users can register, share posts with images, explore what others have posted, and join the conversation through comments.
 
-Built as the final project for the **Advanced JavaScript** series by **Tarmeez Academy**.
+Built as the final project for the **Advanced JavaScript** course by **Tarmeez Academy**.
 
 ## Features
 
@@ -14,10 +14,6 @@ Built as the final project for the **Advanced JavaScript** series by **Tarmeez A
 - **User profile**: shows the user's info, number of posts, number of comments, and all of their posts. Clicking a username or the avatar in the navbar opens the profile.
 - **Instant feedback**: success and error alerts for every action.
 - **Responsive design**: works on phones, tablets and desktops.
-
-## Live Demo
-
-🔗 [https://fatimahghallab2-boop.github.io/fg-media/](https://fatimahghallab2-boop.github.io/fg-media/)
 
 ## Screenshots
 
@@ -34,7 +30,7 @@ Built as the final project for the **Advanced JavaScript** series by **Tarmeez A
 ![Profile page](screenshots/profile.png)
 
 ### Mobile
-![Mobile view](screenshots/mobile.jpg)
+![Mobile view](screenshots/mobile.png)
 
 ## Built With
 
@@ -81,4 +77,4 @@ Color palette used across the site:
 
 ## Author
 
-Fatimah ALGhallab
+Your name here
