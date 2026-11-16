@@ -1,0 +1,819 @@
+/* ==========================================================================
+   FG Media — style.css
+   Palette: #D0D4E0 (lavender grey) · #6D6293 (purple) · #FFFFFF · #92C3C8 (teal)
+   Built on top of Bootstrap 5.0.2 (loaded before this file)
+   ========================================================================== */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+    --fg-lavender: #D0D4E0;
+    --fg-purple: #6D6293;
+    --fg-white: #FFFFFF;
+    --fg-teal: #92C3C8;
+
+    --fg-purple-dark: #574d7a;
+    --fg-teal-dark: #7ab2b8;
+    --fg-ink: #2c2840;
+    --fg-muted: #6b6882;
+
+    --fg-radius: 16px;
+    --fg-shadow: 0 4px 18px rgba(109, 98, 147, 0.15);
+    --fg-shadow-hover: 0 10px 28px rgba(109, 98, 147, 0.25);
+}
+
+/* ---------- 2. Base ---------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fg-lavender);
+    color: var(--fg-ink);
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: var(--fg-purple);
+}
+
+a:hover {
+    color: var(--fg-purple-dark);
+}
+
+.text-muted {
+    color: var(--fg-muted) !important;
+}
+
+hr {
+    border-color: var(--fg-purple);
+    opacity: 0.15;
+}
+
+/* ---------- 3. Navbar (all pages) ---------- */
+header .navbar,
+.custom-navbar {
+    background-color: var(--fg-purple) !important;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.navbar-brand {
+    color: var(--fg-white) !important;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    font-size: 1.35rem;
+}
+
+.navbar-brand:hover {
+    color: var(--fg-teal) !important;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--fg-white) !important;
+    border-bottom-color: rgba(146, 195, 200, 0.6);
+}
+
+.navbar .nav-link.active {
+    color: var(--fg-white) !important;
+    border-bottom-color: var(--fg-teal);
+}
+
+/* Hamburger icon: white on purple (also on the pages using navbar-light) */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(146, 195, 200, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Login / Register / Logout buttons inside the navbar */
+.navbar .btn-outline-success {
+    color: var(--fg-white);
+    border-color: var(--fg-teal);
+    font-weight: 600;
+}
+
+.navbar .btn-outline-success:hover,
+.navbar .btn-outline-success:focus,
+.navbar .btn-outline-success:active {
+    background-color: var(--fg-teal);
+    border-color: var(--fg-teal);
+    color: var(--fg-ink);
+}
+
+.navbar .btn-outline-danger {
+    color: var(--fg-white);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar .btn-outline-danger:hover,
+.navbar .btn-outline-danger:focus,
+.navbar .btn-outline-danger:active {
+    background-color: var(--fg-white);
+    border-color: var(--fg-white);
+    color: #b02a37;
+}
+
+/* Gap between Login / Register (the HTML has a duplicated class attribute) */
+#logged-out-div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#nav-username {
+    color: var(--fg-white);
+    font-weight: 600;
+}
+
+#nav-user-img {
+    object-fit: cover;
+    border: 2px solid var(--fg-teal);
+}
+
+#nav-user-letter {
+    width: 30px;
+    height: 30px;
+    background-color: var(--fg-lavender);
+    color: var(--fg-purple);
+    font-weight: bold;
+    border: 2px solid var(--fg-teal);
+}
+
+/* Logged-in user: avatar + name + logout inside one soft pill */
+#logged-in-div {
+    display: flex;
+    width: fit-content;
+    padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+}
+
+#nav-user-profile-link {
+    padding-left: 0.1rem;
+}
+
+#nav-username {
+    padding-right: 0.25rem;
+    font-size: 0.95rem;
+}
+
+#logout-btn {
+    padding: 0.2rem 0.85rem;
+    font-size: 0.8rem;
+    border-radius: 999px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 0.75rem 0 0.5rem;
+    }
+
+    .navbar .nav-link {
+        padding: 0.6rem 0.25rem;
+    }
+
+    #logged-out-div,
+    #logged-in-div {
+        margin-top: 0.75rem;
+    }
+}
+
+/* ---------- 4. Buttons ---------- */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--fg-purple);
+    border-color: var(--fg-purple);
+    color: var(--fg-white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--fg-purple-dark) !important;
+    border-color: var(--fg-purple-dark) !important;
+    color: var(--fg-white);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(146, 195, 200, 0.5);
+}
+
+.btn-outline-primary {
+    color: var(--fg-purple);
+    border-color: var(--fg-purple);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--fg-purple);
+    border-color: var(--fg-purple);
+    color: var(--fg-white);
+}
+
+.btn-secondary,
+.btn-light {
+    background-color: var(--fg-lavender);
+    border-color: var(--fg-lavender);
+    color: var(--fg-ink);
+}
+
+.btn-secondary:hover,
+.btn-light:hover {
+    background-color: #bfc4d6;
+    border-color: #bfc4d6;
+    color: var(--fg-ink);
+}
+
+/* Hero button on the home page keeps its own white look */
+.carousel-caption .btn-light {
+    background-color: var(--fg-white);
+    border-color: var(--fg-white);
+    color: var(--fg-purple);
+}
+
+.carousel-caption .btn-light:hover {
+    background-color: var(--fg-teal);
+    border-color: var(--fg-teal);
+    color: var(--fg-ink);
+}
+
+/* "Explore All Posts" */
+.fg-btn-explore {
+    color: var(--fg-purple);
+    border: 2px solid var(--fg-purple);
+    background-color: transparent;
+}
+
+.fg-btn-explore:hover,
+.fg-btn-explore:focus {
+    background-color: var(--fg-purple);
+    border-color: var(--fg-purple);
+    color: var(--fg-white);
+    transform: translateY(-2px);
+    box-shadow: var(--fg-shadow);
+}
+
+/* "+ New Post" button on the Explore page (sits under the heading) */
+#createBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    height: 46px;
+    padding: 0 1.5rem;
+    margin-top: 1rem;
+    border-radius: 999px !important; /* overrides Bootstrap's rounded-circle */
+    font-size: 1.5rem;
+    line-height: 1;
+    background-color: var(--fg-teal);
+    border: none;
+    color: var(--fg-ink);
+    box-shadow: 0 6px 18px rgba(146, 195, 200, 0.55);
+}
+
+#createBtn::after {
+    content: "New Post";
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#createBtn:hover,
+#createBtn:focus {
+    background-color: var(--fg-purple) !important;
+    color: var(--fg-white);
+    transform: translateY(-2px);
+}
+
+#createBtn.d-none {
+    display: none !important;
+}
+
+/* ---------- 5. Hero carousel (home) ---------- */
+/* The HTML uses class="carousel-slide", so these rules give it the
+   positioning Bootstrap's ".carousel" would normally provide. */
+.carousel-slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--fg-radius);
+    box-shadow: var(--fg-shadow);
+    background-color: var(--fg-purple);
+}
+
+.carousel-inner img {
+    height: clamp(200px, 38vw, 380px) !important; /* overrides inline 350px */
+    object-fit: cover;
+}
+
+.carousel-caption {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 3rem 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(44, 40, 64, 0.85), rgba(44, 40, 64, 0));
+}
+
+.carousel-caption h5 {
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.carousel-caption p {
+    margin-bottom: 0.5rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--fg-teal);
+    height: 4px;
+    border: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(109, 98, 147, 0.7);
+    border-radius: 50%;
+    background-size: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+main.mt-5 {
+    margin-top: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+    main.mt-5 {
+        margin-top: 2.5rem !important;
+    }
+}
+
+/* ---------- 6. Page headings ---------- */
+/* "Explore Posts" block right under the navbar on posts.html */
+header + section {
+    padding: 2.25rem 1rem 0.5rem;
+    text-align: center;
+}
+
+header + section h1 {
+    color: var(--fg-purple);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin-bottom: 0.25rem;
+}
+
+header + section p {
+    color: var(--fg-muted);
+    font-size: 1.05rem;
+}
+
+/* ---------- 7. Post cards ---------- */
+#posts.container {
+    max-width: 680px;
+}
+
+.fg-post-card {
+    background-color: var(--fg-white);
+    border: none;
+    border-radius: var(--fg-radius);
+    box-shadow: var(--fg-shadow);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fg-post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--fg-shadow-hover);
+}
+
+.fg-card-header {
+    background-color: var(--fg-white);
+    border-bottom: 1px solid rgba(109, 98, 147, 0.12);
+    padding: 0.9rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+}
+
+.fg-card-header small {
+    margin-left: auto;
+    font-size: 0.8rem;
+}
+
+.fg-username {
+    color: var(--fg-purple);
+}
+
+.fg-username:hover {
+    color: var(--fg-teal-dark);
+}
+
+.fg-post-card > img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    display: block;
+}
+
+.fg-post-card .card-body {
+    padding: 1.1rem 1.25rem 0.75rem;
+}
+
+.fg-post-card .card-body h5 {
+    color: var(--fg-ink);
+    font-weight: 700;
+}
+
+.fg-post-card .card-body p {
+    margin-bottom: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.fg-post-card > hr {
+    margin: 0.5rem 1.25rem 0;
+}
+
+.fg-post-card > .mt-3 {
+    margin-top: 0.6rem !important;
+    padding: 0 1.25rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Fallback avatars (created in JS with inline green colors) */
+.fg-post-card span.rounded-circle,
+#comments-container span.rounded-circle {
+    background-color: var(--fg-lavender) !important;
+    color: var(--fg-purple) !important;
+}
+
+.fg-post-card .rounded-circle,
+#comments-container .rounded-circle {
+    border: 2px solid var(--fg-teal);
+}
+
+.view-comments-btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+    .fg-card-header small {
+        order: 5;
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+
+    .fg-post-card .card-body {
+        padding: 1rem 1rem 0.5rem;
+    }
+
+    .fg-post-card > hr {
+        margin: 0.5rem 1rem 0;
+    }
+
+    .fg-post-card > .mt-3 {
+        padding: 0 1rem 0.9rem;
+    }
+
+}
+
+/* ---------- 8. Home: latest posts ---------- */
+#latest-posts {
+    max-width: 640px;
+}
+
+/* ---------- 9. Post details page ---------- */
+#postUsername {
+    display: block;
+    margin: 2rem 0 1rem;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    font-weight: 800;
+    color: var(--fg-purple);
+}
+
+#currentPost,
+#comments-container,
+#addCommentForm {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#postUsername {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Comments are rendered as pairs of plain <div>s: header (avatar + name) then text */
+#comments-container {
+    margin-top: 1.5rem;
+}
+
+#comments-container > div:nth-child(odd) {
+    display: flex;
+    align-items: center;
+    background-color: var(--fg-white);
+    padding: 0.9rem 1rem 0.2rem;
+    border-radius: 12px 12px 0 0;
+    color: var(--fg-purple);
+    margin-top: 0.75rem;
+}
+
+#comments-container > div:nth-child(even) {
+    background-color: var(--fg-white);
+    padding: 0 1rem 0.9rem 4rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 3px 10px rgba(109, 98, 147, 0.08);
+    overflow-wrap: anywhere;
+}
+
+#comments-container img {
+    border: 2px solid var(--fg-teal);
+}
+
+#addCommentForm {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+#addComment {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: var(--fg-white);
+    color: var(--fg-ink);
+}
+
+#addComment:focus {
+    outline: none;
+    border-color: var(--fg-teal);
+    box-shadow: 0 0 0 0.25rem rgba(146, 195, 200, 0.35);
+}
+
+#addCommentBtn {
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--fg-purple);
+    color: var(--fg-white);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+#addCommentBtn:hover {
+    background-color: var(--fg-purple-dark);
+}
+
+@media (max-width: 575.98px) {
+    #comments-container > div:nth-child(even) {
+        padding-left: 1rem;
+    }
+}
+
+/* ---------- 10. Profile page ---------- */
+#profile-img {
+    display: block;
+    width: 130px;
+    height: 130px;
+    margin: 2rem auto 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--fg-white);
+    box-shadow: 0 0 0 4px var(--fg-teal), var(--fg-shadow);
+    background-color: var(--fg-lavender);
+}
+
+/* Hide the broken-image icon while src is still empty */
+#profile-img[src=""] {
+    display: none;
+}
+
+/* Name / username / email block */
+#profile-img + div,
+#profile-img[src=""] + div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#user-name {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 800;
+    color: var(--fg-purple);
+    order: 1;
+}
+
+#user-userName {
+    order: 2;
+    color: var(--fg-teal-dark);
+    font-weight: 600;
+}
+
+#user-userName::before {
+    content: "@";
+}
+
+#user-email {
+    order: 3;
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+}
+
+/* Counters */
+#profile-img + div + div,
+#profile-img[src=""] + div + div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.25rem 0 2rem;
+}
+
+#user-posts_counts,
+#user-commentsCount {
+    background-color: var(--fg-white);
+    color: var(--fg-purple);
+    font-weight: 700;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    box-shadow: var(--fg-shadow);
+    border: 2px solid var(--fg-teal);
+}
+
+#user-posts_counts::after {
+    content: " Posts";
+    font-weight: 500;
+}
+
+#user-commentsCount::after {
+    content: " Comments";
+    font-weight: 500;
+}
+
+#name-posts {
+    display: block;
+    max-width: 680px;
+    margin: 0 auto 1rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--fg-purple);
+}
+
+#user-posts {
+    max-width: 680px;
+    margin: 0 auto 2rem;
+}
+
+/* ---------- 11. Modals & forms ---------- */
+.modal-content {
+    border: 0;
+    border-radius: var(--fg-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(44, 40, 64, 0.3);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(109, 98, 147, 0.12);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(109, 98, 147, 0.12);
+}
+
+.modal-title {
+    color: var(--fg-purple);
+    font-weight: 700;
+}
+
+.modal-backdrop.show {
+    background-color: var(--fg-ink);
+    opacity: 0.55;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid var(--fg-lavender);
+    background-color: #fbfbfd;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--fg-teal);
+    box-shadow: 0 0 0 0.25rem rgba(146, 195, 200, 0.35);
+    background-color: var(--fg-white);
+}
+
+.form-label,
+.modal-body label {
+    color: var(--fg-ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.input-group-text {
+    background-color: var(--fg-lavender);
+    color: var(--fg-purple);
+    border: 1px solid var(--fg-lavender);
+    font-weight: 700;
+}
+
+.btn-close:focus {
+    box-shadow: 0 0 0 0.2rem rgba(146, 195, 200, 0.5);
+}
+
+/* Delete confirmation */
+#delete-modal .btn-outline-danger:hover {
+    color: var(--fg-white);
+}
+
+/* Small phones: keep modals comfortable */
+@media (max-width: 575.98px) {
+    .modal-dialog {
+        margin: 0.75rem;
+    }
+}
+
+/* ---------- 12. Alerts (toast-style) ---------- */
+#alerts {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 9999;
+    width: 350px;
+    max-width: calc(100vw - 40px);
+}
+
+#alerts .alert {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    border: none;
+    border-left: 5px solid var(--fg-teal);
+    border-radius: 12px;
+}
+
+#alerts .alert.show-alert {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#alerts .alert.hide-alert {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+@media (max-width: 575.98px) {
+    #alerts {
+        top: 78px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+    }
+}
+
+/* ---------- 13. Large screens ---------- */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* ---------- 14. Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
