@@ -337,8 +337,18 @@ header .navbar,
     background: linear-gradient(to top, rgba(44, 40, 64, 0.85), rgba(44, 40, 64, 0));
 }
 
-/* Phones: keep the title + button, hide the long description */
-@media (max-width: 575.98px) {
+.carousel-caption h5 {
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.carousel-caption p {
+    margin-bottom: 0.5rem;
+}
+
+/* Phones: keep the title + button, hide the long description.
+   (Must stay AFTER the h5 / p rules above so it can override them.) */
+@media (max-width: 767.98px) {
     .carousel-caption {
         padding: 2rem 1rem 2.25rem;
     }
@@ -357,15 +367,6 @@ header .navbar,
         padding: 0.35rem 1rem !important;
         margin-top: 0 !important;
     }
-}
-
-.carousel-caption h5 {
-    font-weight: 800;
-    font-size: 1.6rem;
-}
-
-.carousel-caption p {
-    margin-bottom: 0.5rem;
 }
 
 .carousel-indicators [data-bs-target] {
