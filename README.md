@@ -30,7 +30,7 @@ Built as the final project for the **Advanced JavaScript** course by **Tarmeez A
 ![Profile page](screenshots/profile.png)
 
 ### Mobile
-![Mobile view](screenshots/mobile.png)
+![Mobile view](screenshots/mobile.jpg)
 
 ## Built With
 
